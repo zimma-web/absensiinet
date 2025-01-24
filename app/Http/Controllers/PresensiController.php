@@ -168,12 +168,26 @@ class PresensiController extends Controller
         $tahun = $request->tahun;
 
         $histori = DB::table('presensi')
-        ->whereRaw('MONTH(tgl_absensi) ="' .$bulan. '"')
-        ->whereRaw('YEAR(tgl_absensi) ="' .$tahun.'"' )
-        ->where('nik', $nik)
-        ->orderBy('tgl_absensi')
-        ->get();
+            ->whereRaw('MONTH(tgl_absensi) ="' . $bulan . '"')
+            ->whereRaw('YEAR(tgl_absensi) ="' . $tahun . '"')
+            ->where('nik', $nik)
+            ->orderBy('tgl_absensi')
+            ->get();
 
         return view('presensi.gethistori', compact('histori'));
+    }
+
+    public function izin()
+    {
+        return view('presensi.izin');
+    }
+
+    public function buatizin(Request $request)
+    {
+        return view('presensi.buatizin');
+    }
+
+    public function storeizin(Request $request){
+        $tgl_izin //eps15 45:13
     }
 }
