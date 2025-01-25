@@ -14,10 +14,10 @@ This project is designed to simplify and enhance the development experience. Our
 - **Real-time Event Broadcasting**: Seamless integration for real-time features.
 
 ## Meet the Team
-- **Alice** - Project Manager
-- **Bob** - Lead Developer
-- **Charlie** - UI/UX Designer
-- **Diana** - QA Engineer
+- **Zimam** - Project Manager
+- **Alvitho** - Lead Developer
+- **Adil** - 
+- **Bagus** - Q&A
 
 ## Contributing
 We welcome contributions! Please refer to our contribution guidelines for more information.
