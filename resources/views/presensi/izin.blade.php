@@ -40,14 +40,15 @@
                             <div class="in">
                                 <div>
                                     <b>{{ date('d-m-Y', strtotime($d->tgl_izin)) }}
-                                        ({{ $d->status == 's' ? 'Sakit' : 'Izin' }})</b><br>
+                                        ({{ $d->status == 's' ? 'Sakit' : 'Izin' }})
+                                    </b><br>
                                     <small class="text-muted"> {{ $d->keterangan }} </small>
                                 </div>
-                                @if($d->status_approved == 0)
+                                @if ($d->status_approved == 0)
                                     <span class="badge bg-warning">Pending</span>
-                                    @elseif($d->status_approved == 1)
+                                @elseif($d->status_approved == 1)
                                     <span class="badge bg-success">Approved</span>
-                                    @elseif($d->status_approved == 2)
+                                @elseif($d->status_approved == 2)
                                     <span class="badge bg-danger">Rejected</span>
                                 @endif
                             </div>

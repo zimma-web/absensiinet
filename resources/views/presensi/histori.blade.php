@@ -20,7 +20,9 @@
                     <div class="form-group">
                         <select class="form-control" name="bulan" id="bulan">
                             <option value="">Bulan</option>
-                            @for ($i = 1; $i <= 12; $i++) <option value="{{ $i }}" {{ date("m") == $i ? 'selected' : '' }} > {{ $namabulan[$i] }} </option>
+                            @for ($i = 1; $i <= 12; $i++)
+                                <option value="{{ $i }}" {{ date('m') == $i ? 'selected' : '' }}>
+                                    {{ $namabulan[$i] }} </option>
                             @endfor
                         </select>
                     </div>
@@ -35,8 +37,9 @@
                                 $tahunmulai = 2021;
                                 $tahunskrg = date('Y');
                             @endphp
-                            @for($tahun=$tahunmulai; $tahun<=$tahunskrg; $tahun++)
-                                <option value="{{ $tahun }}" {{ date("Y") == $tahun ? 'selected' : '' }} >{{ $tahun }}</option>
+                            @for ($tahun = $tahunmulai; $tahun <= $tahunskrg; $tahun++)
+                                <option value="{{ $tahun }}" {{ date('Y') == $tahun ? 'selected' : '' }}>
+                                    {{ $tahun }}</option>
                             @endfor
                         </select>
                     </div>
@@ -53,18 +56,18 @@
         </div>
     </div>
 
-<div class="row">
-    <div class="col" id="showhistori">
+    <div class="row">
+        <div class="col" id="showhistori">
 
+        </div>
     </div>
-</div>
 @endsection
 
 
 @push('myscript')
     <script>
-        $(function(){
-            $("#getdata").click(function(e){
+        $(function() {
+            $("#getdata").click(function(e) {
                 var bulan = $("#bulan").val();
                 var tahun = $("#Tahun").val();
                 $.ajax({
@@ -76,13 +79,11 @@
                         tahun: tahun
                     },
                     cache: false,
-                    success: function(respond){
+                    success: function(respond) {
                         $("#showhistori").html(respond);
                     }
                 });
             });
         });
-
     </script>
-
 @endpush

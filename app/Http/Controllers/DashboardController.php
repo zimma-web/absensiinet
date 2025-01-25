@@ -46,7 +46,33 @@ class DashboardController extends Controller
             ->where('status_approved', 1)
             ->first();
 
-        return view('dashboard.dashboard', compact('presensihariini', 'historibulanini', 'namabulan', 'bulanini', 'tahunini', 'namabulanini',
-        'rekapabsensi', 'leaderboard', 'rekapizin'));
+        return view('dashboard.dashboard', compact(
+            'presensihariini',
+            'historibulanini',
+            'namabulan',
+            'bulanini',
+            'tahunini',
+            'namabulanini',
+            'rekapabsensi',
+            'leaderboard',
+            'rekapizin'
+        ));
+    }
+
+    public function dashboardadmin()
+    {
+        $hariini = date("y-m-d");
+        $rekapabsensi = DB::table('presensi')
+            ->selectRaw('COUNT(nik) as jmlhadir, SUM(IF(jam_in > "08:00:00", 1, 0)) as jmlterlambat, SUM(IF(jam_out < "17:00:00", 1, 0)) as jmlpulangcepat')
+            ->where('tgl_absensi', $hariini)
+            ->first();
+
+        $rekapizin = DB::table('pengajuan_izin')
+            ->selectRaw('SUM(IF(status="i",1,0)) as jmlizin,SUM(IF(status="s",1,0)) as jmlsakit')
+            ->where('tgl_izin', $hariini)
+            ->where('status_approved', 1)
+            ->first();
+
+        return view('dashboard.dashboardadmin', compact('rekapabsensi', 'rekapizin'));
     }
 }
