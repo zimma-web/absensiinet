@@ -16,7 +16,7 @@ This project is designed to simplify and enhance the development experience. Our
 ## Meet the Team
 - **Zimam** - Project Manager
 - **Alvitho** - Lead Developer
-- **Adil** - 
+- **Adil** - Analisis
 - **Bagus** - Q&A
 
 ## Contributing
