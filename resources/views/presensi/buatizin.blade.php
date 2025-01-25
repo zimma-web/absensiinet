@@ -16,12 +16,11 @@
 @section('content')
     <div class="row" style="margin-top: 70px">
         <div class="col">
-            <form action="#" method="POST" id="frmizin">
+            <form action="/presensi/storeizin" method="POST" id="frmizin">
                 @csrf
                 <div class="col">
                     <div class="form-group">
-                        <input type="text" id="tgl_izin" nama="tgl_izin" class="form-control datepicker"
-                            placeholder="Tanggal">
+                        <input type="text" id="tgl_izin" name="tgl_izin" class="form-control datepicker" placeholder="Tanggal">
                     </div>
                 </div>
                 <div class="col">
