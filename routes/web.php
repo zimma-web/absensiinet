@@ -64,7 +64,9 @@ Route::middleware(['auth:user'])->group(function () {
 
     //Karyawan
 
-    Route::get('/karyawan', [KaryawanController::class,'index']);
-    Route::Post('/karyawan/store', [KaryawanController::class,'store']);
-
+    Route::get('/karyawan', [KaryawanController::class, 'index']);
+    Route::Post('/karyawan/store', [KaryawanController::class, 'store']);
+    Route::Post('/karyawan/edit', [KaryawanController::class, 'edit']);
+    Route::Post('/karyawan/{nik}/update', [KaryawanController::class, 'update']);
+    Route::Post('/karyawan/{nik}/delete', [KaryawanController::class, 'delete']);
 });
