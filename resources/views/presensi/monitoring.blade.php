@@ -1,6 +1,6 @@
 @extends('layouts.admin.tabler')
 @section('content')
-    
+
     <div class="page-header d-print-none">
         <div class="container-xl">
             <div class="row g-2 align-items-center">
@@ -56,6 +56,7 @@
                                                 <th>Jam Pulang</th>
                                                 <th>Foto</th>
                                                 <th>Keterangan</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody id="loadpresensi"></tbody>
@@ -68,6 +69,20 @@
             </div>
         </div>
     </div>
+
+    <div class="modal modal-blur fade" id="modal-tampilkanpeta" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Lokasi Presensi Karyawan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="loadmap">
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 @push('myscript')
     <script>

@@ -56,7 +56,7 @@ class PresensiController extends Controller
         $fileName = $formatName . ".png";
         $file = $folderPath . $fileName;
 
-        if ($radius > 20000) {
+        if ($radius > 20) {
             echo "error|Maaf anda berada diluar radius, Jarak Anda " . $radius . " meter dari kantor|radius";
         } else {
 
@@ -229,5 +229,14 @@ class PresensiController extends Controller
             ->get();
 
         return view('presensi.getpresensi', compact('presensi'));
+    }
+
+    public function tampilkanpeta(Request $request)
+    {
+        $id = $request->id;
+        $presensi = DB::table('presensi')->where('id', $id)
+            ->join('karyawan', 'presensi.nik', '=', 'karyawan.nik')
+            ->first();
+        return view('presensi.showmap', compact('presensi'));
     }
 }
