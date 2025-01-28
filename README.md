@@ -1,28 +1,29 @@
-<p align="center"><img src="https://example.com/your-logo.png" width="400" alt="Your Logo"></p>
+# 🌟 Zimam's Portfolio
 
-<h1 align="center">Welcome to Our Project!</h1>
-<p align="center">A collaborative project by Team Awesome</p>
+Welcome to my GitHub portfolio! Here you'll find some of my projects and contributions.
 
-## About Our Project
+---
 
-This project is designed to simplify and enhance the development experience. Our goal is to create a robust web application that meets the needs of our users while providing an enjoyable development experience.
+## 📊 GitHub Stats
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=zimma-web&show_icons=true&theme=dark&count_private=true)
 
-### Key Features
-- **Fast Routing**: Simple and efficient routing engine.
-- **Dependency Injection**: Powerful container for managing dependencies.
-- **Database ORM**: Intuitive and expressive database interactions.
-- **Real-time Event Broadcasting**: Seamless integration for real-time features.
+![GitHub Streak](https://streak-stats.demolab.com/?user=zimma-web&theme=dark)
 
-## Meet the Team
-- **Zimam** - Project Manager
-- **Alvitho** - Lead Developer
-- **Adil** - Analisis
-- **Bagus** - Q&A
+---
 
-## Contributing
-We welcome contributions! Please refer to our contribution guidelines for more information.
+## 💻 Most Used Languages
+![Most Used Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=zimma-web&layout=compact&theme=dark)
 
-## License
-This project is open-sourced software licensed under the MIT license.
+---
 
-<p align="center">Thank you for visiting our project!</p>
+## 🏆 Trophies
+![Trophies](https://github-profile-trophy.vercel.app/?username=zimma-web&theme=darkhub)
+
+---
+
+## 📅 Contributions Heatmap
+![GitHub Contributions](https://github.com/zimma-web/zimma-web/raw/main/heatmap.png)
+
+---
+
+🔗 **Follow me on GitHub:** [zimma-web](https://github.com/zimma-web)
