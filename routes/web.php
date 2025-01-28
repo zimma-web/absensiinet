@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\KaryawanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -64,7 +65,20 @@ Route::middleware(['auth:user'])->group(function () {
 
     //Karyawan
 
-    Route::get('/karyawan', [KaryawanController::class,'index']);
-    Route::Post('/karyawan/store', [KaryawanController::class,'store']);
+    Route::get('/karyawan', [KaryawanController::class, 'index']);
+    Route::Post('/karyawan/store', [KaryawanController::class, 'store']);
+    Route::Post('/karyawan/edit', [KaryawanController::class, 'edit']);
+    Route::Post('/karyawan/{nik}/update', [KaryawanController::class, 'update']);
+    Route::Post('/karyawan/{nik}/delete', [KaryawanController::class, 'delete']);
 
+    //departemen
+    Route::get('/departemen', [DepartemenController::class, 'index']);
+    Route::Post('/departemen/store', [DepartemenController::class, 'store']);
+    Route::Post('/departemen/edit', [DepartemenController::class, 'edit']);
+    Route::Post('/departemen/{kode_dept}/update', [DepartemenController::class, 'update']);
+    Route::Post('/departemen/{kode_dept}/delete', [DepartemenController::class, 'delete']);
+
+    //presensi
+    Route::get('/presensi/monitoring', [PresensiController::class, 'monitoring']);
+    Route::post('/getpresensi', [PresensiController::class, 'getpresensi']);
 });
