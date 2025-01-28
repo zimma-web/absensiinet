@@ -1,5 +1,6 @@
 @extends('layouts.admin.tabler')
 @section('content')
+    
     <div class="page-header d-print-none">
         <div class="container-xl">
             <div class="row g-2 align-items-center">
@@ -36,7 +37,7 @@
                                                 <path d="M8 15h2v2h-2z" />
                                             </svg>
                                         </span>
-                                        <input type="text" value="" id="tanggal" nama="tanggal"
+                                        <input type="text" value="{{ date('Y-m-d') }}" id="tanggal" nama="tanggal"
                                             class="form-control" placeholder="Tanggal Presensi" autocomplete="off">
                                     </div>
                                 </div>
@@ -77,8 +78,8 @@
                 format: 'yyyy-mm-dd'
             });
 
-            $("#tanggal").change(function(e) {
-                var tanggal = $(this).val();
+            function loadpresensi() {
+                var tanggal = $("#tanggal").val();
                 $.ajax({
                     type: 'POST',
                     url: '/getpresensi',
@@ -91,7 +92,11 @@
                         $("#loadpresensi").html(respond);
                     }
                 });
+            }
+            $("#tanggal").change(function(e) {
+                loadpresensi();
             });
+            loadpresensi();
         });
     </script>
 @endpush
