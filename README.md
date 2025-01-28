@@ -26,6 +26,9 @@ Welcome to my GitHub portfolio! Here you'll find some of my projects and contrib
 
 ---
 
+![GitHub Contributions](https://github.com/zimma-web/zimma-web/raw/main/nama-file-heatmap.png)
+
+
 📫 **Reach me on:**
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/your-profile)
 [![Twitter](https://img.shields.io/badge/-Twitter-blue?style=flat&logo=twitter)](https://twitter.com/your-handle)
