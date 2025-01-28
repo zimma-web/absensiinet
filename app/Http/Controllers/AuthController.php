@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function proseslogin(Request $request)
     {
         if (Auth::guard('karyawan')->attempt(['nik' => $request->nik, 'password' => $request->password])) {
-            return redirect()->intended('/dashboard');
+            return redirect('/');
         } else {
             return redirect()->back()->withErrors(['login' => 'Login gagal. Silakan periksa NIK/PASS Anda.']);
         }
