@@ -181,7 +181,7 @@ class PresensiController extends Controller
     {
         $nik = Auth::guard('karyawan')->user()->nik;
         $dataizin = DB::table('pengajuan_izin')->where('nik', $nik)->get();
-        return view('presensi.izin' , compact('dataizin'));
+        return view('presensi.izin', compact('dataizin'));
     }
 
     public function buatizin(Request $request)
@@ -211,5 +211,23 @@ class PresensiController extends Controller
         } else {
             return Redirect('/presensi/izin')->with(['error' => 'Data Gagal Disimpan']);
         }
+    }
+
+    public function monitoring()
+    {
+        return view('presensi.monitoring');
+    }
+
+    public function getpresensi(Request $request)
+    {
+        $tanggal = $request->tanggal;
+        $presensi = DB::table('presensi')
+            ->select('presensi.*', 'nama_lengkap', 'nama_dept')
+            ->join('karyawan', 'presensi.nik', '=', 'karyawan.nik')
+            ->join('departemen', 'karyawan.kode_dept', '=', 'departemen.kode_dept')
+            ->where('tgl_absensi', $tanggal)
+            ->get();
+
+        return view('presensi.getpresensi', compact('presensi'));
     }
 }
