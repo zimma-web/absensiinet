@@ -20,8 +20,8 @@ class PresensiController extends Controller
         $hariini = date("Y-m-d");
         $nik = Auth::guard('karyawan')->user()->nik;
         $cek = DB::table('presensi')->where('tgl_absensi', $hariini)->where('nik', $nik)->count();
-        $lok_kantor = DB::table('konfigurasi_lokasi')->where('id',1)->first();
-        return view("presensi.create", compact('cek','lok_kantor'));
+        $lok_kantor = DB::table('konfigurasi_lokasi')->where('id', 1)->first();
+        return view("presensi.create", compact('cek', 'lok_kantor'));
     }
 
     public function store(Request $request)
@@ -30,10 +30,10 @@ class PresensiController extends Controller
         $nik = Auth::guard('karyawan')->user()->nik;
         $tgl_presensi = date("Y-m-d");
         $jam = date("H:i:s");
-        // $latitudekantor = -6.867319264012897;
-        // $longitudekantor = 107.53720199147638;
-        $latitudekantor = -6.919350543097919;
-        $longitudekantor = 107.59284973360057;
+        $lok_kantor = DB::table('konfigurasi_lokasi')->where('id', 1)->first();
+        $lok = explode(",", $lok_kantor->lokasi_kantor);
+        $latitudekantor = $lok[0];
+        $longitudekantor = $lok[1];
         $lokasi = $request->lokasi;
         $lokasiuser = explode(",", $lokasi);
         $latitudeuser = $lokasiuser[0];
@@ -57,7 +57,7 @@ class PresensiController extends Controller
         $fileName = $formatName . ".png";
         $file = $folderPath . $fileName;
 
-        if ($radius > 20) {
+        if ($radius > $lok_kantor->radius) {
             echo "error|Maaf anda berada diluar radius, Jarak Anda " . $radius . " meter dari kantor|radius";
         } else {
 
@@ -321,6 +321,6 @@ MAX(IF(DAY(tgl_absensi) = 31,CONCAT(jam_in,"-",IFNULL(jam_out,"00:00:00")),"")) 
             ->groupByRaw('presensi.nik,nama_lengkap')
             ->get();
 
-        return view('presensi.cetakrekap', compact('bulan', 'tahun','namabulan', 'rekap'));
+        return view('presensi.cetakrekap', compact('bulan', 'tahun', 'namabulan', 'rekap'));
     }
 }
