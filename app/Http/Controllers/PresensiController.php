@@ -280,6 +280,7 @@ class PresensiController extends Controller
     {
         $bulan = $request->bulan;
         $tahun = $request->tahun;
+        $namabulan = ["", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
         $rekap = DB::table('presensi')
             ->selectRaw('presensi.nik,nama_lengkap,
 MAX(IF(DAY(tgl_absensi) = 1,CONCAT(jam_in,"-",IFNULL(jam_out,"00:00:00")),"")) as tgl_1,
@@ -319,6 +320,6 @@ MAX(IF(DAY(tgl_absensi) = 31,CONCAT(jam_in,"-",IFNULL(jam_out,"00:00:00")),"")) 
             ->groupByRaw('presensi.nik,nama_lengkap')
             ->get();
 
-            dd($rekap);
+        return view('presensi.cetakrekap', compact('bulan', 'tahun','namabulan', 'rekap'));
     }
 }
