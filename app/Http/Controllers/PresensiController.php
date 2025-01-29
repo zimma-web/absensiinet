@@ -255,13 +255,17 @@ class PresensiController extends Controller
         $bulan = $request->bulan;
         $tahun = $request->tahun;
         $namabulan = ["", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-        $karyawan = DB::table('karyawan')->where('nik', $nik)->first();
+        $karyawan = DB::table('karyawan')->where('nik', $nik)
+            ->join('departemen', 'karyawan.kode_dept', '=', 'departemen.kode_dept')
+            ->first();
 
-        // Check if $karyawan is null
-        // if (!$karyawan) {
-        //     return redirect()->back()->with('error', 'Karyawan not found.');
-        // }
+        $presensi = DB::table('presensi')
+            ->where('nik', $nik)
+            ->whereRaw('MONTH(tgl_absensi)="' . $bulan . '"')
+            ->whereRaw('YEAR(tgl_absensi)="' . $tahun . '"')
+            ->orderBy('tgl_absensi')
+            ->get();
 
-        return view('presensi.cetaklaporan', compact('bulan', 'tahun', 'namabulan', 'karyawan'));
+        return view('presensi.cetaklaporan', compact('bulan', 'tahun', 'namabulan', 'karyawan', 'presensi'));
     }
 }
