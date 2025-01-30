@@ -68,13 +68,6 @@
                         </div>
                     </div>
 
-                    <div class="form-links mt-2">
-                        <div>
-                            <a href="page-register.html">Register Now</a>
-                        </div>
-                        <div><a href="page-forgot-password.html" class="text-muted">Forgot Password?</a></div>
-                    </div>
-
                     <div class="form-button-group">
                         <button type="submit" class="btn btn-primary btn-block btn-lg">Log in</button>
                     </div>

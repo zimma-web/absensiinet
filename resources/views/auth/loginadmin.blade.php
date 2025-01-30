@@ -13,8 +13,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Sign in with illustration - Tabler - Premium and Open Source dashboard template with responsive and high
-        quality UI.</title>
+    <title>Login Admin E-Absensi PT.Inet Global Indo</title>
     <!-- CSS files -->
     <link href="{{ asset('tabler/dist/css/tabler.min.css?1674944402') }}" rel="stylesheet" />
     <link href="{{ asset('tabler/dist/css/tabler-flags.min.css?1674944402') }}" rel="stylesheet" />
