@@ -6,6 +6,7 @@
         .datepicker-modal {
             max-height: 430px !important;
         }
+
         .datepicker-date-display {
             background-color: #007bff !important;
         }
@@ -25,11 +26,12 @@
 @section('content')
     <div class="row" style="margin-top: 70px">
         <div class="col">
-            <form action="/presensi/storeizin" method="POST" id="frmizin">
+            <form action="/presensi/storeizin" method="POST" id="frmizin" autocomplete="off">
                 @csrf
                 <div class="col">
                     <div class="form-group">
-                        <input type="text" id="tgl_izin" name="tgl_izin" class="form-control datepicker" placeholder="Tanggal">
+                        <input type="text" id="tgl_izin" name="tgl_izin" class="form-control datepicker"
+                            placeholder="Tanggal">
                     </div>
                 </div>
                 <div class="col">
@@ -60,6 +62,28 @@
         $(document).ready(function() {
             $(".datepicker").datepicker({
                 format: "yyyy-mm-dd"
+            });
+
+            $("#tgl_izin").change(function(e) {
+                var tgl_izin = $(this).val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/presensi/cekpengajuanizin',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        tgl_izin: tgl_izin
+                    },
+                    cache: false,
+                    success: function(respond) {
+                        Swal.fire({
+                            title: 'Oops!',
+                            text: 'Maaf Anda Sudah Mengajukan Izin Ditanggal Tersebut',
+                            icon: 'warning',
+                        }).then((result) => {
+                            $("#tgl_izin").val("");
+                        });
+                    }
+                });
             });
 
             $("#frmizin").submit(function() {

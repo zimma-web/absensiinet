@@ -46,6 +46,7 @@ Route::middleware(['auth:karyawan'])->group(function () {
     Route::get('/presensi/create', [PresensiController::class, 'create']);
     Route::post('/presensi/store', [PresensiController::class, 'store']);
 
+
     //Edit profile
     Route::get('/editprofile', [PresensiController::class, 'editprofile']);
     Route::post('/presensi/{nik}/updateprofile', [PresensiController::class, 'updateprofile']);
@@ -58,6 +59,7 @@ Route::middleware(['auth:karyawan'])->group(function () {
     Route::get('/presensi/izin', [PresensiController::class, 'izin']);
     Route::get('/presensi/buatizin', [PresensiController::class, 'buatizin']);
     Route::post('/presensi/storeizin', [PresensiController::class, 'storeizin']);
+    Route::post('/presensi/cekpengajuanizin', [PresensiController::class, 'cekpengajuanizin']);
 });
 
 Route::middleware(['auth:user'])->group(function () {
@@ -65,7 +67,6 @@ Route::middleware(['auth:user'])->group(function () {
     Route::get('/proseslogoutadmin', [AuthController::class, 'proseslogoutadmin']);
 
     //Karyawan
-
     Route::get('/karyawan', [KaryawanController::class, 'index']);
     Route::Post('/karyawan/store', [KaryawanController::class, 'store']);
     Route::Post('/karyawan/edit', [KaryawanController::class, 'edit']);
@@ -87,6 +88,10 @@ Route::middleware(['auth:user'])->group(function () {
     Route::post('/presensi/cetaklaporan', [PresensiController::class, 'cetaklaporan']);
     Route::get('/presensi/rekap', [PresensiController::class, 'rekap']);
     Route::post('/presensi/cetakrekap', [PresensiController::class, 'cetakrekap']);
+    Route::get('/presensi/izinsakit', [PresensiController::class, 'izinsakit']);
+    Route::post('/presensi/approveizinsakit', [PresensiController::class, 'approveizinsakit']);
+    Route::get('/presensi/{id}/batalkanizinsakit', [PresensiController::class, 'batalkanizinsakit']);
+
 
     // konfigurasi
     Route::get('/konfigurasi/lokasikantor', [KonfigurasiController::class, 'lokasikantor']);
