@@ -50,6 +50,8 @@ class PresensiController extends Controller
         } else {
             $ket = "in";
         }
+
+
         $image = $request->image;
         $folderPath = "public/uploads/absensi/";
         $formatName = $nik . "-" . $tgl_presensi . "-" . $ket; // nama file
@@ -315,7 +317,7 @@ MAX(IF(DAY(tgl_absensi) = 27,CONCAT(jam_in,"-",IFNULL(jam_out,"00:00:00")),"")) 
 MAX(IF(DAY(tgl_absensi) = 28,CONCAT(jam_in,"-",IFNULL(jam_out,"00:00:00")),"")) as tgl_28,
 MAX(IF(DAY(tgl_absensi) = 29,CONCAT(jam_in,"-",IFNULL(jam_out,"00:00:00")),"")) as tgl_29,
 MAX(IF(DAY(tgl_absensi) = 30,CONCAT(jam_in,"-",IFNULL(jam_out,"00:00:00")),"")) as tgl_30,
-MAX(IF(DAY(tgl_absensi) = 31,CONCAT(jam_in0,"-",IFNULL(jam_out,"00:00:00")),"")) as tgl_31')
+MAX(IF(DAY(tgl_absensi) = 31,CONCAT(jam_in,"-",IFNULL(jam_out,"00:00:00")),"")) as tgl_31')
             ->join('karyawan', 'presensi.nik', '=', 'karyawan.nik')
             ->whereRaw('MONTH(tgl_absensi)="' . $bulan . '"')
             ->whereRaw('YEAR(tgl_absensi)="' . $tahun . '"')

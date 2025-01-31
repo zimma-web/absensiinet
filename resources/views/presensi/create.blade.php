@@ -45,6 +45,7 @@
                     <ion-icon name="camera-outline"></ion-icon>
                     Absen Pulang
                 </button>
+            @elseif (!empty($cek))
             @else
                 <button id="takeabsen" class="btn btn-primary btn-block">
                     <ion-icon name="camera-outline"></ion-icon>

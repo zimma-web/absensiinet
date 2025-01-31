@@ -39,7 +39,7 @@ class DashboardController extends Controller
         $namabulanini = $namabulan[$bulanini]; // Get the month name
 
         $rekapizin = DB::table('pengajuan_izin')
-            ->selectRaw('SUM(IF(status="i",1,0)) as jmlizin,SUM(IF(status="s",1,0)) as jmlsakit')
+            ->selectRaw('SUM(IF(status="i",1,0)) as jmlizin,SUM(IF(status="s",1,0))as jmlsakit')
             ->where('nik', $nik)
             ->whereRaw('MONTH(tgl_izin)="' . $bulanini . '"')
             ->whereRaw('YEAR(tgl_izin)="' . $tahunini . '"')
@@ -68,7 +68,7 @@ class DashboardController extends Controller
             ->first();
 
         $rekapizin = DB::table('pengajuan_izin')
-            ->selectRaw('SUM(IF(status="i",1,0)) as jmlizin,SUM(IF(status="s",1,0)) as jmlsakit')
+            ->selectRaw('SUM(IF(status="i",1,0)) as jmlizin, SUM(IF(status="s",1,0)) as jmlsakit')
             ->where('tgl_izin', $hariini)
             ->where('status_approved', 1)
             ->first();

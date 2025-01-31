@@ -75,13 +75,16 @@
                     },
                     cache: false,
                     success: function(respond) {
-                        Swal.fire({
-                            title: 'Oops!',
-                            text: 'Maaf Anda Sudah Mengajukan Izin Ditanggal Tersebut',
-                            icon: 'warning',
-                        }).then((result) => {
-                            $("#tgl_izin").val("");
-                        });
+                        if (respond == 1) {
+                            Swal.fire({
+                                title: 'Oops!',
+                                text: 'Maaf Anda Sudah Mengajukan Izin Ditanggal Tersebut',
+                                icon: 'warning',
+                            }).then((result) => {
+                                $("#tgl_izin").val("");
+                            });
+                        }
+
                     }
                 });
             });

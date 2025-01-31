@@ -162,8 +162,7 @@
                     <div class="card">
                         <div class="card-body text-center" style="padding: 12px 12px !important; line-height: 0.8rem;">
                             <span class="badge bg-danger"
-                                style="position: absolute; top:3px; right: 5px; font-size: 0.6rem; z-index: 999;">
-                                {{ $rekapabsensi->jmlterlambat }} </span>
+                                style="position: absolute; top:3px; right: 5px; font-size: 0.6rem; z-index: 999;">{{ $rekapabsensi->jmlterlambat }}</span>
                             <ion-icon name="alarm-outline" style="font-size: 1.6rem ;"
                                 class="text-danger mb-1"></ion-icon>
                             <br>
