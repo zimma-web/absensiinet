@@ -65,6 +65,20 @@ class PresensiController extends Controller
         } else {
 
             if ($cek > 0) {
+                // Check if the user has already clocked out
+                $cek_pulang = DB::table('presensi')->where('tgl_absensi', $tgl_presensi)->where('nik', $nik)->whereNotNull('jam_out')->count();
+                if ($cek_pulang > 0) {
+                    echo "error|Anda sudah absen pulang|out";
+                    return;
+                }
+
+                // Check if the current time is before 3 PM
+                $current_time = date("H:i:s");
+                if ($current_time < "15:00:00") {
+                    echo "error|Absen pulang hanya bisa dilakukan setelah jam 15:00:00 sore|out";
+                    return;
+                }
+
                 $data_pulang = [
                     'jam_out' => $jam,
                     'poto_out' => $fileName,

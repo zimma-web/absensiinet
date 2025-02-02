@@ -71,6 +71,14 @@
                     </button>
                 </div>
             </div>
+            <div class="form-group boxed">
+                <div class="input-wrapper">
+                    <a href="/proseslogout" class="btn btn-danger btn-block">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                        Logout
+                    </a>
+                </div>
+            </div>
         </div>
     </form>
 @endsection

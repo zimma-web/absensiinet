@@ -2,102 +2,122 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#000000">
-    <title>E Absensi Inet Global Indo</title>
-    <meta name="description" content="Mobilekit HTML Mobile UI Kit">
-    <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}" sizes="32x32">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/icon/192x192.png') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="manifest" href="__manifest.json">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login E-Absensi PT.Inet Global Indo</title>
+    <link href="{{ asset('tabler/dist/css/tabler.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('tabler/dist/css/demo.min.css') }}" rel="stylesheet" />
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+        :root {
+            --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+        }
+        body {
+            font-feature-settings: "cv03", "cv04", "cv11";
+            background-color: #f8f9fa; /* Light background for better contrast */
+        }
+        .login-form {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-width: 400px; /* Limit width for mobile */
+            margin: auto; /* Center the form */
+            position: relative; /* For positioning the decorative elements */
+        }
+        .form-footer {
+            margin-top: 1rem;
+        }
+        .btn-primary {
+            background-color: #007bff; /* Bright blue color */
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            border-color: #0056b3;
+        }
+        .decorative-element {
+            position: absolute;
+            top: -50px; /* Adjust position as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px; /* Adjust size as needed */
+        }
+        @media (max-width: 768px) {
+            .login-form {
+                padding: 1.5rem; /* Adjust padding for smaller screens */
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-white">
-
-    <!-- loader -->
-    <div id="loader">
-        <div class="spinner-border text-primary" role="status"></div>
-    </div>
-    <!-- * loader -->
-
-
-    <!-- App Capsule -->
-    <div id="appCapsule" class="pt-0">
-
-        <div class="login-form mt-1">
-            <div class="section">
-                <img src="{{ asset('assets/img/login/login.png') }}" alt="image" class="form-image">
-            </div>
-            <div class="section mt-1">
-                <h1>E-Absensi Inet Global Indo</h1>
-                <h4>Silahkan login</h4>
-            </div>
-            <div class="section mt-1 mb-5">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <form action="/proseslogin" method="POST">
-                    @csrf
-                    <div class="form-group boxed">
-                        <div class="input-wrapper">
-                            <input type="text" name="nik" class="form-control" id="nik" placeholder="NIK">
-                            <i class="clear-input">
-                                <ion-icon name="close-circle"></ion-icon>
-                            </i>
+<body class="d-flex flex-column">
+    <div class="page page-center">
+        <div class="container container-normal py-4">
+            <div class="row align-items-center g-4">
+                <div class="col-lg">
+                    <div class="container-tight">
+                        <div class="text-center mb-4">
+                            <a href="." class="navbar-brand navbar-brand-autodark"><img src="./static/logo.svg" height="36" alt=""></a>
+                        </div>
+                        <div class="login-form">
+                            <img src="{{ asset('tabler/static/illustrations/undraw_secure_login_pdn4.svg') }}" class="decorative-element" alt="Decorative Element">
+                            <h2 class="h2 text-center mb-4">Login to your account</h2>
+                            @if ($errors->any())
+                                <div class="alert alert-warning">
+                                    <p>{{ $errors->first() }}</p>
+                                </div>
+                            @endif
+                            <form action="/proseslogin" method="POST" autocomplete="off" novalidate>
+                                @csrf
+                                <div class="mb-3">
+                                    <label class="form-label">NIK</label>
+                                    <input type="text" name="nik" class="form-control" placeholder="NIK" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Password</label>
+                                    <div class="input-group input-group-flat">
+                                        <input type="password" name="password" class="form-control" placeholder="Your password" required>
+                                        <span class="input-group-text">
+                                            <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip" onclick="togglePasswordVisibility()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M12 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                                    <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
+                                                </svg>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-check">
+                                        <input type="checkbox" class="form-check-input" />
+                                        <span class="form-check-label">Remember me on this device</span>
+                                    </label>
+                                </div>
+                                <div class="form-footer">
+                                    <button type="submit" class="btn btn-primary w-100">Log in</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-
-                    <div class="form-group boxed">
-                        <div class="input-wrapper">
-                            <input type="password" class="form-control" id="password" name="password"
-                                placeholder="Password">
-                            <i class="clear-input">
-                                <ion-icon name="close-circle"></ion-icon>
-                            </i>
-                        </div>
-                    </div>
-
-                    <div class="form-button-group">
-                        <button type="submit" class="btn btn-primary btn-block btn-lg">Log in</button>
-                    </div>
-
-                </form>
+                </div>
             </div>
         </div>
-
-
     </div>
-    <!-- * App Capsule -->
-
-
-
-    <!-- ///////////// Js Files ////////////////////  -->
-    <!-- Jquery -->
-    <script src="{{ asset('assets/js/lib/jquery-3.4.1.min.js') }}"></script>
-    <!-- Bootstrap-->
-    <script src="{{ asset('assets/js/lib/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/lib/bootstrap.min.js') }}"></script>
-    <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
-    <!-- Owl Carousel -->
-    <script src="{{ asset('assets/js/plugins/owl-carousel/owl.carousel.min.js') }}"></script>
-    <!-- jQuery Circle Progress -->
-    <script src="{{ asset('assets/js/plugins/jquery-circle-progress/circle-progress.min.js') }}"></script>
-    <!-- Base Js File -->
-    <script src="{{ asset('assets/js/base.js') }}"></script>
-
-
+    <script src="{{ asset('tabler/dist/js/demo.min.js') }}" defer></script>
+    <script src="{{ asset('tabler/dist/js/tabler.min.js') }}" defer></script>
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.querySelector('input[name="password"]');
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+    </script>
 </body>
 
 </html>

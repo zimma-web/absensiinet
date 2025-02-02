@@ -39,6 +39,15 @@
         </div>
     </div>
     <div class="row">
+        @if (session('error'))
+            <script>
+                Swal.fire({
+                    title: 'Gagal',
+                    text: "{{ session('error') }}",
+                    icon: 'error',
+                });
+            </script>
+        @endif
         <div class="col">
             @if ($cek > 0)
                 <button id="takeabsen" class="btn btn-danger btn-block">
