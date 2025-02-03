@@ -4,7 +4,6 @@
         <div class="container-xl">
             <div class="row g-2 align-items-center">
                 <div class="col">
-                    <!-- Page pre-title -->
                     <h2 class="page-title">
                         Laporan Presensi
                     </h2>
@@ -18,7 +17,7 @@
                 <div class="col-6">
                     <div class="card">
                         <div class="card-body">
-                            <form action="/presensi/cetaklaporan" target="_blank" method="POST">
+                            <form action="/presensi/cetaklaporan" target="_blank" method="POST" onsubmit="return validateSelection()">
                                 @csrf
                                 <div class="row mt-2">
                                     <div class="col-12">
@@ -107,4 +106,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function checkEmployeeSelection() {
+            const dropdown = document.getElementById('nik');
+        }
+
+        function validateSelection() {
+            const dropdown = document.getElementById('nik');
+            if (dropdown.value === '') {
+                alert('Silakan pilih karyawan terlebih dahulu.');
+                return false;
+            }
+            return true;
+        }
+    </script>
 @endsection

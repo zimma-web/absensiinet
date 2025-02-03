@@ -11,7 +11,6 @@
                 @else
                     <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w64 rounded">
                 @endif
-
             </div>
             <div id="user-info">
                 <h2 id="user-name">{{ Auth::guard('karyawan')->user()->nama_lengkap }}</h2>
@@ -68,6 +67,7 @@
             </div>
         </div>
     </div>
+
     <div class="section mt-2" id="presence-section">
         <div class="todaypresence">
             <div class="row">

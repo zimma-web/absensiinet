@@ -71,7 +71,7 @@
                                                 placeholder="Your password" autocomplete="off">
                                             <span class="input-group-text">
                                                 <a href="#" class="link-secondary" title="Show password"
-                                                    data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                                                    data-bs-toggle="tooltip">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon"
                                                         width="24" height="24" viewBox="0 0 24 24"
                                                         stroke-width="2" stroke="currentColor" fill="none"
@@ -110,6 +110,17 @@
     <!-- Tabler Core -->
     <script src="{{ asset('tabler/dist/js/demo.min.js?1674944402') }}" defer></script>
     <script src="{{ asset('tabler/dist/js/tabler.min.js?1674944402') }}" defer></script>
+    <script>
+        document.querySelector('.input-group-text a').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default anchor behavior
+            const passwordInput = document.querySelector('input[name="password"]');
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    </script>
 </body>
 
 </html>

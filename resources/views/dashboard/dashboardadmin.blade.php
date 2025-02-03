@@ -24,7 +24,6 @@
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <span class="bg-success text-white avatar">
-                                        <!-- Download SVG icon from http://tabler.io/icons/icon/currency-dollar -->
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
@@ -56,7 +55,6 @@
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <span class="bg-info text-white avatar">
-                                        <!-- Download SVG icon from http://tabler.io/icons/icon/currency-dollar -->
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
@@ -89,7 +87,6 @@
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <span class="bg-warning text-white avatar">
-                                        <!-- Download SVG icon from http://tabler.io/icons/icon/currency-dollar -->
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
@@ -120,7 +117,6 @@
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <span class="bg-danger text-white avatar">
-                                        <!-- Download SVG icon from http://tabler.io/icons/icon/currency-dollar -->
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="currentColor"
                                             class="icon icon-tabler icons-tabler-filled icon-tabler-alarm">
@@ -147,6 +143,11 @@
                     </div>
                 </div>
             </div>
+            @if ($rekapabsensi == null)
+                <div class="alert alert-warning">
+                    <strong>Maaf!</strong> Data absensi tidak ditemukan untuk hari ini.
+                </div>
+            @endif
         </div>
     </div>
 @endsection

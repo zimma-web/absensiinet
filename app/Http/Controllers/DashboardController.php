@@ -61,7 +61,7 @@ class DashboardController extends Controller
 
     public function dashboardadmin()
     {
-        $hariini = date("y-m-d");
+$hariini = date("Y-m-d");
         $rekapabsensi = DB::table('presensi')
             ->selectRaw('COUNT(nik) as jmlhadir, SUM(IF(jam_in > "08:00:00", 1, 0)) as jmlterlambat, SUM(IF(jam_out < "17:00:00", 1, 0)) as jmlpulangcepat')
             ->where('tgl_absensi', $hariini)
