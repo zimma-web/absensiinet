@@ -115,7 +115,11 @@
         function validateSelection() {
             const dropdown = document.getElementById('nik');
             if (dropdown.value === '') {
-                alert('Silakan pilih karyawan terlebih dahulu.');
+                Swal.fire({
+                    title: 'Gagal',
+                    text: "Silahkan Pilih Karyawan",
+                    icon: 'error',
+                });
                 return false;
             }
             return true;
