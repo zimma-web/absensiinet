@@ -31,7 +31,7 @@
             @endif
         </div>
     </div>
-    <form action="/presensi/{{ $karyawan->nik }}/updateprofile" method="POST" enctype="multipart/form-data">
+    <form action="/presensi/{{ $karyawan->nik }}/updateprofile" method="POST" enctype="multipart/form-data" onsubmit="return validateProfileForm()">
         @csrf
         <div class="col">
             <div class="form-group boxed">
@@ -81,4 +81,22 @@
             </div>
         </div>
     </form>
+
+    <script>
+        function validateProfileForm() {
+            const name = document.querySelector('input[name="nama_lengkap"]').value;
+            const phone = document.querySelector('input[name="no_hp"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            if (!name || !phone) {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'Silakan isi semua kolom.',
+                    icon: 'error',
+                });
+                return false;
+            }
+            return true;
+        }
+    </script>
 @endsection
