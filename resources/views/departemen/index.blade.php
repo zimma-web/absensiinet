@@ -111,6 +111,7 @@
                                                                         d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
                                                                     <path d="M16 5l3 3" />
                                                                 </svg>
+                                                                Edit
                                                             </a>
                                                             <form action="/departemen/{{ $d->kode_dept }}/delete"
                                                                 method="POST" style="margin-left:5px ">
@@ -127,6 +128,7 @@
                                                                         <path
                                                                             d="M14 2a2 2 0 0 1 2 2a1 1 0 0 1 -1.993 .117l-.007 -.117h-4l-.007 .117a1 1 0 0 1 -1.993 -.117a2 2 0 0 1 1.85 -1.995l.15 -.005h4z" />
                                                                     </svg>
+                                                                    Delete
                                                                 </button>
                                                             </form>
                                                         </div>
