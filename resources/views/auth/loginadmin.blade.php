@@ -15,11 +15,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Login Admin E-Absensi PT.Inet Global Indo</title>
     <!-- CSS files -->
-<link href="{{ asset('tabler/dist/css/tabler.min.css') }}" rel="stylesheet" />
-<link href="{{ asset('tabler/dist/css/tabler-flags.min.css') }}" rel="stylesheet" />
-<link href="{{ asset('tabler/dist/css/tabler-payments.min.css') }}" rel="stylesheet" />
-<link href="{{ asset('tabler/dist/css/tabler-vendors.min.css') }}" rel="stylesheet" />
-<link href="{{ asset('tabler/dist/css/demo.min.css') }}" rel="stylesheet" />
+<link href="{{ secure_asset('tabler/dist/css/tabler.min.css') }}" rel="stylesheet" />
+<link href="{{ secure_asset('tabler/dist/css/tabler-flags.min.css') }}" rel="stylesheet" />
+<link href="{{ secure_asset('tabler/dist/css/tabler-payments.min.css') }}" rel="stylesheet" />
+<link href="{{ secure_asset('tabler/dist/css/tabler-vendors.min.css') }}" rel="stylesheet" />
+<link href="{{ secure_asset('tabler/dist/css/demo.min.css') }}" rel="stylesheet" />
     <style>
         @import url('https://rsms.me/inter/inter.css');
 
@@ -34,7 +34,7 @@
 </head>
 
 <body class=" d-flex flex-column">
-    <script src="{{ asset('tabler/dist/js/demo-theme.min.js?1674944402') }}"></script>
+    <script src="{{ secure_asset('tabler/dist/js/demo-theme.min.js?1674944402') }}"></script>
     <div class="page page-center">
         <div class="container container-normal py-4">
             <div class="row align-items-center g-4">
@@ -100,7 +100,7 @@
                     </div>
                 </div>
                 <div class="col-lg d-none d-lg-block">
-                    <img src="{{ asset('tabler/static/illustrations/undraw_secure_login_pdn4.svg') }}" height="300"
+                    <img src="{{ secure_asset('tabler/static/illustrations/undraw_secure_login_pdn4.svg') }}" height="300"
                         class="d-block mx-auto" alt="">
                 </div>
             </div>
@@ -108,8 +108,8 @@
     </div>
     <!-- Libs JS -->
     <!-- Tabler Core -->
-    <script src="{{ asset('tabler/dist/js/demo.min.js?1674944402') }}" defer></script>
-    <script src="{{ asset('tabler/dist/js/tabler.min.js?1674944402') }}" defer></script>
+    <script src="{{ secure_asset('tabler/dist/js/demo.min.js?1674944402') }}" defer></script>
+    <script src="{{ secure_asset('tabler/dist/js/tabler.min.js?1674944402') }}" defer></script>
     <script>
         document.querySelector('.input-group-text a').addEventListener('click', function(event) {
             event.preventDefault(); // Prevent the default anchor behavior

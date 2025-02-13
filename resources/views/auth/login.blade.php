@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Login E-Absensi PT.Inet Global Indo</title>
-    <link href="{{ asset('tabler/dist/css/tabler.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('tabler/dist/css/demo.min.css') }}" rel="stylesheet" />
+<link href="{{ secure_asset('tabler/dist/css/tabler.min.css') }}" rel="stylesheet" />
+<link href="{{ secure_asset('tabler/dist/css/demo.min.css') }}" rel="stylesheet" />
     <style>
         @import url('https://rsms.me/inter/inter.css');
         :root {
