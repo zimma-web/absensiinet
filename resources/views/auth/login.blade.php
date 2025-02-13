@@ -59,7 +59,7 @@
                 <div class="col-lg">
                     <div class="container-tight">
                         <div class="text-center mb-4">
-                            <a href="." class="navbar-brand navbar-brand-autodark"><img src="./static/logo.svg" height="36" alt=""></a>
+<a href="." class="navbar-brand navbar-brand-autodark"><img src="{{ secure_asset('tabler/static/logo.svg') }}" height="36" alt=""></a>
                         </div>
                         <div class="login-form">
                             <img src="{{ asset('tabler/static/illustrations/undraw_secure_login_pdn4.svg') }}" class="decorative-element" alt="Decorative Element">
@@ -106,8 +106,8 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('tabler/dist/js/demo.min.js') }}" defer></script>
-    <script src="{{ asset('tabler/dist/js/tabler.min.js') }}" defer></script>
+<script src="{{ secure_asset('tabler/dist/js/demo.min.js') }}" defer></script>
+<script src="{{ secure_asset('tabler/dist/js/tabler.min.js') }}" defer></script>
     <script>
         function togglePasswordVisibility() {
             const passwordInput = document.querySelector('input[name="password"]');
