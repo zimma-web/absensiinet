@@ -246,6 +246,7 @@ class PresensiController extends Controller
             ->where('tgl_absensi', $tanggal)
             ->get();
 
+
         return view('presensi.getpresensi', compact('presensi'));
     }
 
@@ -284,7 +285,15 @@ class PresensiController extends Controller
             ->orderBy('tgl_absensi')
             ->get();
 
+        if (isset($_POST['exportexcel'])) {
+            $time = date("d:M:Y H:i:s");
+            header("Content-type: application/vnd-ms-excel");
+            header("Content-Disposition: attachment; filename=Laporan Presensi Karyawan" . " " . $time . ".xls");
+            return view('presensi.cetaklaporanexcel', compact('bulan', 'tahun', 'namabulan', 'karyawan', 'presensi'));
+        }
+
         return view('presensi.cetaklaporan', compact('bulan', 'tahun', 'namabulan', 'karyawan', 'presensi'));
+
     }
     public function rekap()
     {
@@ -338,6 +347,11 @@ MAX(IF(DAY(tgl_absensi) = 31,CONCAT(jam_in,"-",IFNULL(jam_out,"00:00:00")),"")) 
             ->groupByRaw('presensi.nik,nama_lengkap')
             ->get();
 
+        if (isset($_POST['exportexcel'])) {
+            $time = date("d:M:Y H:i:s");
+            header("Content-type: application/vnd-ms-excel");
+            header("Content-Disposition: attachment; filename=Rekap Presensi Karyawan" . " " . $time . ".xls");
+        }
         return view('presensi.cetakrekap', compact('bulan', 'tahun', 'namabulan', 'rekap'));
     }
 
