@@ -15,11 +15,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Login Admin E-Absensi PT.Inet Global Indo</title>
     <!-- CSS files -->
-    <link href="{{ asset('tabler/dist/css/tabler.min.css?1674944402') }}" rel="stylesheet" />
-    <link href="{{ asset('tabler/dist/css/tabler-flags.min.css?1674944402') }}" rel="stylesheet" />
-    <link href="{{ asset('tabler/dist/css/tabler-payments.min.css?1674944402') }}" rel="stylesheet" />
-    <link href="{{ asset('tabler/dist/css/tabler-vendors.min.css?1674944402') }}" rel="stylesheet" />
-    <link href="{{ asset('tabler/dist/css/demo.min.css?1674944402') }}" rel="stylesheet" />
+<link href="{{ asset('tabler/dist/css/tabler.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('tabler/dist/css/tabler-flags.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('tabler/dist/css/tabler-payments.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('tabler/dist/css/tabler-vendors.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('tabler/dist/css/demo.min.css') }}" rel="stylesheet" />
     <style>
         @import url('https://rsms.me/inter/inter.css');
 
