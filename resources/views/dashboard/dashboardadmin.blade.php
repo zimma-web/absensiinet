@@ -6,7 +6,7 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        Overview
+                        Dashboard
                     </div>
                     <h2 class="page-title">
                         Dashboard
